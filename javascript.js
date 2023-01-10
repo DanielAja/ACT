@@ -11,9 +11,9 @@ form.addEventListener('submit', event => {
     const todoText = event.target.elements.todoInput.value;
     const todoHours = event.target.elements.todoHours.value;
 
-    var expirationTime = new Date() // your date object
+    var expirationTime = new Date()
     expirationTime.setHours(expirationTime.getHours() + parseInt(todoHours));
-    // expirationTime.setMinutes(expirationTime.getMinutes() + 1);
+
     expirationTimeString = expirationTime.toLocaleString();
 
     // Add the to-do item to the list and save it to local storage
@@ -39,11 +39,7 @@ function addTodo(todo) {
     const li = document.createElement('li');
 
     let currentTime = new Date();
-    // console.log(currentTime);
-    // console.log(new Date(todo.expirationTime));
-    // console.log(new Date(todo.expirationTime) - currentTime);
     let expirationTimeDate = new Date(todo.expirationTime);
-    // console.log(expirationTimeDate.toLocaleString());
     var diff = expirationTimeDate - currentTime;
     if (diff < 0 || todo.text === null || todo.text.trim() === "") {
         return;
@@ -61,11 +57,6 @@ function addTodo(todo) {
         timeLeft = Math.round(d).toString() + "d"
     }
 
-
-    +":" + m.toString() + ":" + s.toString();
-    // console.log(timeLeft)
-
-
     li.textContent = todo.text;
 
     // Create a delete button
@@ -76,13 +67,12 @@ function addTodo(todo) {
         clickCount++;
         if (clickCount === 1) {
             deleteButton.textContent = "complete";
-            timeoutId = setTimeout(function() {
+            timeoutId = setTimeout(function () {
                 clickCount = 0;
                 deleteButton.textContent = timeLeft;
             }, 1500);
         } else if (clickCount === 2) {
             clearTimeout(timeoutId);
-            console.log("Button was double clicked!");
             li.remove();
             removeTodo(todo.text, todo.expirationTime);
             clickCount = 0;
