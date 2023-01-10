@@ -1,7 +1,11 @@
-# ACT
+# [ACT](https://danielaja.github.io/ACT/)
 The Timely Todo List
 
+[Try it out!](https://danielaja.github.io/ACT/)
+
 ACT is a high-priority only to-do list that is aimed at encouraging users to complete tasks, with the threat of the item being removed from the list, if not completed by a set time.
+
+ 
 
 ![Screenshot of ACT](https://i.imgur.com/YKWLAG0.png)
 
